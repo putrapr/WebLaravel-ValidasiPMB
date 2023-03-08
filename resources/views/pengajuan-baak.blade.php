@@ -1,3 +1,7 @@
+@if (session()->missing('jabatan') || session('jabatan') != 'warek')
+    {{  header("Location: login") }}
+@endif
+
 @extends('layouts/main')
 
 @section('container')
@@ -34,6 +38,6 @@
       <hr>
       
     </form>
-    <a class="btn btn-secondary" href="/pmb-baak"  role="button">&lt;&lt; Kembali</a>
+    <a class="btn btn-secondary" href="/pmb-warek"  role="button">&lt;&lt; Kembali</a>
   </div>
 @endsection

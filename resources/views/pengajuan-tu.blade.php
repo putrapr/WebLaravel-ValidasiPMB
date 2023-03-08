@@ -1,3 +1,7 @@
+@if (session()->missing('jabatan') || session('jabatan') != 'baak')
+    {{  header("Location: login") }}
+@endif
+
 @extends('layouts/main')
 
 @section('container')

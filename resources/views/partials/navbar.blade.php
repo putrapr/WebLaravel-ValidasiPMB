@@ -7,16 +7,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "dashboard") ? 'active' : '' }}" href="/dashboard">Dashboard</a>
+            <a class="nav-link {{ ($title === "Dashboard") ? 'active' : '' }}" href="/dashboard">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "pmb") ? 'active' : '' }}" href="/pmb-tu">PMB</a>
+
+            @if (session('jabatan')==="tu")
+              <a class="nav-link {{ ($title === "PMB") ? 'active' : '' }}" href="/pmb-tu">PMB</a>
+            @elseif (session('jabatan')==="baak")
+              <a class="nav-link {{ ($title === "PMB") ? 'active' : '' }}" href="/pmb-baak">PMB</a>
+            @elseif (session('jabatan')==="warek")
+              <a class="nav-link {{ ($title === "PMB") ? 'active' : '' }}" href="/pmb-warek">PMB</a>
+            @endif
+            
           </li>      
       </ul>
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/">Logout</a>
+          <a class="nav-link" href="/login">Logout</a>
         </li>        
     </ul>
     </div>
