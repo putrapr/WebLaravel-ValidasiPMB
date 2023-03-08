@@ -13,20 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mabas', function (Blueprint $table) {
+        Schema::create('tb_maba_non_akademik', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('nik');
-            $table->integer('nilai_mtk');
-            $table->integer('nilai_bi');
-            $table->integer('nilai_bing');
-            $table->integer('nilai_peminatan');
+            $table->string('mapel_peminatan');   
             $table->string('organisasi');
             $table->string('jabatan');
             $table->string('penghargaan');
             $table->string('cita_cita');
-            $table->string('asal_sekolah');            
-            $table->timestamps();
+            $table->string('asal_sekolah');   
         });
     }
 
@@ -37,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mabas');
+        Schema::dropIfExists('tb_maba_non_akademik');
     }
 };

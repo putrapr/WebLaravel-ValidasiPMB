@@ -10,4 +10,8 @@ class PMBTUController extends Controller{
             "title" => "PMB"
         ]);
     }
+
+    public function exportExcel(){
+        
+    }
 }
