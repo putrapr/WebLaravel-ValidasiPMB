@@ -18,11 +18,12 @@ class LoginController extends Controller {
         $exist = $cekAkun->exists();
         if ($exist) {
             $jabatan = $cekAkun->first()->jabatan;
+            $id = $cekAkun->first()->id;
             $request->session()->put('jabatan',$jabatan);
+            $request->session()->put('id',$id);
             // header("Location: dashboard");
             return view('dashboard',[
-                'title' => 'Dashboard',
-                'pengguna' => $jabatan
+                'title' => 'Dashboard'
             ]);
         } else {            
             return view('login',[

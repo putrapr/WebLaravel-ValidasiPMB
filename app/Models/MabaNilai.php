@@ -14,6 +14,6 @@ class MabaNilai extends Model
     public $timestamps = false;
 
     public function tb_maba_data_diri() {
-        return $this->hasOne(MabaDataDiri::class, 'id_nilai', 'id');
+        return $this->hasOne(MabaDataDiri::class,'id_nilai','id');
     }
 }

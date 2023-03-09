@@ -12,7 +12,7 @@ class MabaDataDiri extends Model {
     protected $guarded = ['id'];    
 
     public function tb_maba_nilai() {
-        return $this->belongsTo(MabaNilai::class,'id');
+        return $this->belongsTo(MabaNilai::class,'id','id_nilai');
     }
 
     public function tb_maba_non_akademik() {

@@ -26,6 +26,7 @@ Route::post('/dashboard', [LoginController::class, 'authenticate']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/pmb-tu', [PMBTUController::class, 'index']);
+Route::post('/pmb-tu/excelimport', [PMBTUController::class, 'excelImport']);
 
 Route::get('/pmb-baak', [PMBBAAKController::class, 'index']);
 
