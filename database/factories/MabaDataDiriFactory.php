@@ -21,10 +21,10 @@ class MabaDataDiriFactory extends Factory
         return [
             'nama'=> fake()->name(),
             'nik'=> fake()->nik(),
-            'id_user'=> mt_rand(1,2),
-            'id_nilai'=> self::$no++,
-            'id_non_akademik'=> self::$nmr++,
-            'status'=> 'diajukan'
+            'pengguna_id'=> mt_rand(1,2),
+            'nilai_id'=> self::$no++,
+            'non_akademik_id'=> self::$nmr++,
+            'status'=> 'diajukan-tu'
         ];
     }
 }

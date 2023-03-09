@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_maba_non_akademik', function (Blueprint $table) {
+        Schema::create('non_akademik', function (Blueprint $table) {
             $table->id();
             $table->string('mapel_peminatan');   
             $table->string('organisasi');
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_maba_non_akademik');
+        Schema::dropIfExists('non_akademik');
     }
 };

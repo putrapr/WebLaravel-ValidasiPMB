@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class MabaDataDiri extends Model {
     use HasFactory;
 
-    protected $table = 'tb_maba_data_diri';
+    protected $table = 'data_diri';
     protected $guarded = ['id'];    
 
-    public function tb_maba_nilai() {
-        return $this->belongsTo(MabaNilai::class,'id','id_nilai');
+    public function nilai() {
+        return $this->belongsTo(MabaNilai::class);
     }
 
-    public function tb_maba_non_akademik() {
-        return $this->belongsTo(MabaNonAkademik::class,'id');
+    public function non_akademik() {
+        return $this->belongsTo(MabaNonAkademik::class);
     }
 
-    public function tb_pengguna() {
-        return $this->belongsTo(Pengguna::class,'id');
+    public function pengguna() {
+        return $this->belongsTo(Pengguna::class);
     }    
 }

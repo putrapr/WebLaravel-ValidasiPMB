@@ -17,9 +17,13 @@
       3. Unggah file yang telah berisi data calon mahasiswa baru <br>
       &emsp;dengan klik tombol di bawah ini <br>      
     </p>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary ms-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Unggah Data Calon Maba
     </button>
+    <br><br>
+    <div class="alert alert-success {{ (session()->has('sukses')) ? 'd-block' : 'd-none' }}" role="alert">
+      {{ session('sukses') }}
+    </div>
     {{-- <a class="btn btn-primary ms-3" href="/xlsx/templat-pmb.xlsx" download role="button">Unggah Data Calon Maba</a> --}}
   </div>
 

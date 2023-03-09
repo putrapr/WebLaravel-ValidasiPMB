@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_maba_data_diri', function (Blueprint $table) {
+        Schema::create('data_diri', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('nik')->unique();
-            $table->integer('id_user');
-            $table->integer('id_nilai');
-            $table->integer('id_non_akademik');
-            $table->enum('status',['diajukan', 'diajukan-baak', 'diterima', 'ditolak']);
+            $table->integer('pengguna_id');
+            $table->integer('nilai_id');
+            $table->integer('non_akademik_id');
+            $table->enum('status',['diajukan-tu','proses-baak', 'diajukan-baak',
+                                   'proses-warek', 'diterima', 'ditolak']);
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_maba_data_diri');
+        Schema::dropIfExists('data_diri');
     }
 };

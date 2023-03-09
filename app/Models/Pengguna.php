@@ -9,10 +9,10 @@ class Pengguna extends Model
 {
     use HasFactory;
 
-    protected $table = 'tb_pengguna';
+    protected $table = 'pengguna';
     protected $guarded = ['id'];
 
-    public function tb_maba_data_diri() {
-        return $this->hasMany(MabaDataDiri::class, 'id_user', 'id');
+    public function data_diri() {
+        return $this->hasMany(MabaDataDiri::class);
     }
 }

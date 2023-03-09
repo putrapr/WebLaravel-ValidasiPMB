@@ -9,11 +9,11 @@ class MabaNonAkademik extends Model
 {
     use HasFactory;
 
-    protected $table = 'tb_maba_non_akademik';
+    protected $table = 'non_akademik';
     protected $guarded = ['id'];
     public $timestamps = false;
 
-    public function tb_maba_data_diri() {
-        return $this->hasOne(MabaDataDiri::class, 'id_non_akademik', 'id');
+    public function data_diri() {
+        return $this->hasOne(MabaDataDiri::class);
     }
 }

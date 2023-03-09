@@ -16,37 +16,6 @@ class MabaImport implements ToCollection
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-    // public function collection (Collection $rows){
-    //     $idPengguna = session()->get('id');
-    //     foreach ($rows as $row){
-    //         $nilai = MabaNilai::create([
-    //             'mtk' => $row['Matematika'],
-    //             'bi'    => $row['Bahasa Indonesia'],
-    //             'bing' => $row['Bahasa Inggris'],
-    //             'peminatan' => $row['Peminatan'],
-    //             'non_akademik' => 0,
-    //         ]);
-
-    //         $nonAka = MabaNonAkademik::create([
-    //             'mapel_peminatan' => $row['Nama Mapel Peminatan'],
-    //             'organisasi'    => $row['Organisasi'],
-    //             'jabatan' => $row['Jabatan'],
-    //             'penghargaan' => $row['Penghargaan'],
-    //             'cita_cita' => $row['Cita-cita'],
-    //             'asal_sekolah' => $row['Asal Sekolah'],
-    //         ]);
-
-    //         MabaDataDiri::create([
-    //             'nama' => $row['Nama'],
-    //             'nik'    => $row['NIK'],
-    //             'id_user' => $idPengguna,
-    //             'id_nilai' => $nilai->id(),
-    //             'id_non_akademik' => $nonAka->id(),
-    //             'status' => 'diajukan',
-    //         ]);
-    //     }        
-    // }
-
     public function collection (Collection $rows){
         $idPengguna = session()->get('id');
         $no = 0;
@@ -75,10 +44,10 @@ class MabaImport implements ToCollection
             MabaDataDiri::create([
                 'nama' => $row[1],
                 'nik'    => $row[2],
-                'id_user' => $idPengguna,
-                'id_nilai' => $nilai->id,
-                'id_non_akademik' => $nonAka->id,
-                'status' => 'diajukan',
+                'pengguna_id' => $idPengguna,
+                'nilai_id' => $nilai->id,
+                'non_akademik_id' => $nonAka->id,
+                'status' => 'diajukan-tu',
             ]);
         }        
     }

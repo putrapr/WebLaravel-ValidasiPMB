@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_maba_nilai', function (Blueprint $table) {
+        Schema::create('nilai', function (Blueprint $table) {
             $table->id();            
             $table->integer('mtk');
             $table->integer('bi');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_maba_nilai');
+        Schema::dropIfExists('nilai');
     }
 };

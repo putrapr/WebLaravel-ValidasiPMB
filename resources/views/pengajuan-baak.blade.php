@@ -9,7 +9,6 @@
   <h4>Prodi: Teknik Informatika</h3>
   <hr>
   <div class="subcontainer mt-3">
-    <p>Diajukan oleh nama_user </p>
     <form>
       <table class="table table-bordered border-dark table-striped">
         <thead class="table-warning table-bordered border-dark">
