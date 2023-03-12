@@ -30,6 +30,7 @@ class MabaImport implements ToCollection
                 'bing' => $row[5],
                 'peminatan' => $row[6],
                 'non_akademik' => 0,
+                'jumlah' => 0,
             ]);
 
             $nonAka = MabaNonAkademik::create([

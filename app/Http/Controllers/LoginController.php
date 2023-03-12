@@ -21,10 +21,10 @@ class LoginController extends Controller {
             $id = $cekAkun->first()->id;
             $request->session()->put('jabatan',$jabatan);
             $request->session()->put('id',$id);
-            // header("Location: dashboard");
-            return view('dashboard',[
-                'title' => 'Dashboard'
-            ]);
+            return redirect('/');
+            // return view('dashboard',[
+            //     'title' => 'Dashboard'
+            // ]);
         } else {            
             return view('login',[
                 'title' => 'Login',

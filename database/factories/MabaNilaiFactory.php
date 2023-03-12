@@ -21,7 +21,8 @@ class MabaNilaiFactory extends Factory
             'bi'=> mt_rand(75,100),
             'bing'=> mt_rand(75,100),
             'peminatan'=> mt_rand(75,100),
-            'non_akademik'=> 0
+            'non_akademik'=> 0,
+            'jumlah'=> 0
         ];
     }
 }

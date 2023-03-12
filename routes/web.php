@@ -12,6 +12,7 @@ use App\Http\Controllers\PMBBAAKController;
 use App\Http\Controllers\PMBWarekController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExcelImportController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,21 +26,26 @@ use App\Http\Controllers\ExcelImportController;
 */
 
 Route::get('/login', [LoginController::class, 'index']);
-Route::post('/dashboard', [LoginController::class, 'authenticate']);
+Route::post('/', [LoginController::class, 'authenticate']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index']);
 
 Route::get('/pmb-tu', [PMBTUController::class, 'index']);
 Route::post('/pmb-tu/excelimport', [ExcelImportController::class, 'excelImport']);
 
 Route::get('/pmb-baak/pengajuan-tu', [PTUController::class, 'index']);
 Route::get('/pmb-baak/pengajuan-tu/tolak={id}', function($id){
-  MabaDataDiri::destroy($id);
-  MabaNilai::destroy($id);
-  MabaNonAkademik::destroy($id);
+  MabaDataDiri::where('id', $id)
+              ->update(['status'=>'ditolak']);
   return redirect('/pmb-baak/pengajuan-tu');
 });
+Route::post('/pmb-baak/pengajuan-tu', [PTUController::class, 'tolakTerimaAjuan']);
 Route::get('/pmb-baak', [PMBBAAKController::class, 'index']);
+Route::post('/pmb-baak', [PMBBAAKController::class, 'ajukanKeWarek']);
 
-Route::get('/pmb-warek', [PMBWarekController::class, 'index']);
 Route::get('/pmb-warek/pengajuan-baak', [PBAAKController::class, 'index']);
+Route::post('/pmb-warek/pengajuan-baak', [PBAAKController::class, 'tolakTerimaAjuan']);
+Route::get('/pmb-warek', [PMBWarekController::class, 'index']);
+Route::post('/pmb-warek', [PMBWarekController::class, 'tolakTerimaMaba']);
+
+Route::get('/laporan', [LaporanController::class,'index']);

@@ -12,9 +12,9 @@
                   Nama Pengguna atau Sandi Salah !
                 </div>
 
-                <form action="/dashboard" method="POST">
+                <form action="/" method="POST">
                   @csrf
-                  <h3 class="mb-5">PMB SNMPTN <br> Universitas Mampang</h3>    
+                  <h3 class="mb-5">PMB SNBP <br> Universitas Mampang</h3>    
                   <div class="form-outline mb-4">
                     <input type="text" name="nama" class="form-control form-control-lg" placeholder="Nama Pengguna" required/>
                   </div>                  
@@ -24,7 +24,6 @@
                   <hr class="my-4">
                   <div class="d-grid">
                     <button type="submit" class="btn btn-primary" name="btnLogin">Login</button>
-                    {{-- <a href="/dashboard" class="btn btn-primary btn-lg" type="submit">Login</a> --}}
                   </div>
                 </form>
                 

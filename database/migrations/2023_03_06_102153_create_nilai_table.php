@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('bing');
             $table->integer('peminatan');
             $table->integer('non_akademik');
+            $table->integer('jumlah');
         });
     }
 

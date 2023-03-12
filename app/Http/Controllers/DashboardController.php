@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MabaDataDiri;
 use Illuminate\Http\Request;
-use App\Http\Controllers\SessionController;
-use Session;
 
 class DashboardController extends Controller {
-    public function index(){
-        // if (Session::has('YOUR_SESSION_KEY')){
-        //     // do some thing if the key is exist
-        //   }else{
-        //     //the key does not exist in the session
-        //   }
+    public function index() {
+        $maba = MabaDataDiri::get();
+        $jml_semua = $maba->count();
+        $jml_terima = $maba->where('status', 'diterima')->count();
+        $jml_tolak = $maba->where('status', 'ditolak')->count();
+        $jml_proses = $jml_semua - $jml_terima - $jml_tolak;
+        $maba = [$jml_semua, $jml_proses, $jml_terima, $jml_tolak];
         return view('dashboard',[
-            "title" => "Dashboard"
+            'title' => 'Dashboard',
+            'mabas' => $maba
         ]);
     }
 }
