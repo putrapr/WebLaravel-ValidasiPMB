@@ -73,7 +73,7 @@
         <button type="submit" class="btn btn-primary">Terima Mahasiswa Baru</button>
       </div>
     </form>    
-  </div>
+  </div> <br> <br>
 @endsection
 
 @php
