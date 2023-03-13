@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Pengguna;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller {
     public function index() {
@@ -13,7 +14,7 @@ class LoginController extends Controller {
         ]);
     }
 
-    public function authenticate(Request $request){
+    public function authenticate2(Request $request){
         $cekAkun = Pengguna::where('nama', $request->nama)->where('sandi', $request->sandi);
         $exist = $cekAkun->exists();
         if ($exist) {
@@ -31,5 +32,20 @@ class LoginController extends Controller {
                 'error' => 'salah'
             ]);
         }        
-    }    
+    }  
+    
+    public function authenticate(Request $request){
+        $cekAkun = Pengguna::where('nama', $request->nama)->first();
+        if (!$cekAkun == null) {
+            if (Hash::check($request->sandi, $cekAkun->sandi)) {
+                $request->session()->put('jabatan',$cekAkun->jabatan);
+                $request->session()->put('id',$cekAkun->id);
+                return redirect('/');
+            }    
+        }
+        return view('login',[
+            'title' => 'Login',
+            'error' => 'salah'
+        ]);     
+    } 
 }

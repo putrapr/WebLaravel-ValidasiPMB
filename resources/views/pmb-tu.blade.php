@@ -22,9 +22,15 @@
       Unggah Data Calon Maba
     </button>
     <br><br>
+
     <div class="alert alert-success {{ (session()->has('sukses')) ? 'd-block' : 'd-none' }}" role="alert">
       {{ session('sukses') }}
     </div>
+
+    <div class="alert alert-danger {{ (session()->has('error')) ? 'd-block' : 'd-none' }}" role="alert">
+      {{ session('error') }}
+    </div>
+
   </div>
 
   <!-- Modal -->
@@ -50,5 +56,4 @@
     </form>
     </div>
   </div>
-  
 @endsection

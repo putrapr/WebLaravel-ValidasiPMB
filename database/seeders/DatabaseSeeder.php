@@ -9,6 +9,7 @@ use App\Models\InfoTambahan;
 use App\Models\MabaDataDiri;
 use App\Models\MabaNonAkademik;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,37 +29,37 @@ class DatabaseSeeder extends Seeder
 
         Pengguna::create([
           'nama' => 'tu',
-          'sandi' => 'tu',
+          'sandi' => Hash::make('tu'),
           'jabatan' => 'tu',
         ]);
 
         Pengguna::create([
           'nama' => 'baak',
-          'sandi' => 'baak',
+          'sandi' => Hash::make('baak'),
           'jabatan' => 'baak',
         ]);
 
         Pengguna::create([
           'nama' => 'warek',
-          'sandi' => 'warek',
+          'sandi' => Hash::make('warek'),
           'jabatan' => 'warek',
         ]);
 
         Pengguna::create([
           'nama' => 'Anton',
-          'sandi' => 'ant1',
+          'sandi' => Hash::make('ant1'),
           'jabatan' => 'tu',
         ]);
 
         Pengguna::create([
           'nama' => 'Tono',
-          'sandi' => 'tonton1',
+          'sandi' => Hash::make('tonton1'),
           'jabatan' => 'baak',
         ]);
 
         Pengguna::create([
           'nama' => 'Tini',
-          'sandi' => 'tintin0',
+          'sandi' => Hash::make('tintin0'),
           'jabatan' => 'warek',
         ]);
 
